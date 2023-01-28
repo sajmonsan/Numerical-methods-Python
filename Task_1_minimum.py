@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import numpy as np
 from matplotlib import pyplot as plt
 import numdifftools as ndt
@@ -8,7 +7,6 @@ plt.close("all")
 
 
 def f(x, y):
-    # Funkcja badana (do przykładu poszukiwania minimum funkcji wielu zmiennych)
     return -(((x-2.0)**3.0)*np.cos(((3.0*(y-0.2))/2.0)-((x-0.1)/2.0))*(np.cos((3.0*(y-0.2)/2.0)+((x-0.1)/2.0)))*((y-2.0)**2.0))/25.0
 
 
@@ -26,7 +24,7 @@ XksoweW, YgrekoweW = np.meshgrid(xw, yw)
 
 ZetoweW = f(XksoweW, YgrekoweW)
 
-# Wyznaczenie gradientu funkcji fw
+
 fig1 = plt.figure()
 ax1 = fig1.add_subplot(111)
 c = ax1.contour(XksoweW, YgrekoweW, ZetoweW, 30,
@@ -36,7 +34,7 @@ plt.clabel(c, fmt="%.2f")
 ax1.set_xlabel("x")
 ax1.set_ylabel("y")
 
-# Wyznaczenie punktu startowego
+
 xksowe = 1
 ygrekowe = -1
 krok = 1
@@ -72,7 +70,6 @@ print("Minimum lokalne funkcji znajduje się w punkcie ({},{}), znalezione minin
     xksowe, ygrekowe, i, f(punkt[0], punkt[1]), punkt[0], punkt[0], grd[0], grd[1]))
 
 
-# pokozazanie frakmentu funkcji w 3d
 fig1 = plt.figure()
 ax0 = fig1.add_subplot(111, projection='3d', elev=10, azim=-45)
 ax0.plot_surface(XksoweW, YgrekoweW, ZetoweW, cmap=cm.spring)
